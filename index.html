@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Review Website</title>
+    <style>
+        /* CSS styles for the entire page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header img {
+            height: 50px;
+            vertical-align: middle;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Main content styles */
+        main {
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Social links */
+        .social-links {
+            margin-bottom: 10px;
+        }
+
+        /* Legal links */
+        .legal-links {
+            margin-top: 10px;
+        }
+
+        /* Toggle button */
+        .toggle-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .toggle-container label {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 20px;
+        }
+
+        .toggle-container label:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            top: 0;
+            left: 0;
+            transition: 0.3s;
+        }
+
+        .toggle-container input[type="checkbox"] {
+            display: none;
+        }
+
+        .toggle-container input[type="checkbox"]:checked + label {
+            background-color: #2196F3;
+        }
+
+        .toggle-container input[type="checkbox"]:checked + label:after {
+            left: 20px;
+        }
+
+        /* Movie review styles */
+        .movie-review {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .movie-review h2 {
+            margin-top: 0;
+        }
+
+        .movie-review p {
+            margin-bottom: 20px;
+        }
+
+        .movie-review .user-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .movie-review .user-rating label {
+            margin-right: 10px;
+        }
+
+        /* Upcoming movies styles */
+        .upcoming-movies {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .upcoming-movies select {
+            margin-right: 10px;
+        }
+
+        /* About section styles */
+        .about {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        /* Contact section styles */
+        .contact {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .contact label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .contact input[type="text"],
+        .contact input[type="email"],
+        .contact textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .contact textarea {
+            height: 100px;
+        }
+
+        .contact input[type="submit"] {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            header img {
+                height: 40px;
+            }
+
+            .toggle-container {
+                top: 10px;
+                right: 10px;
+            }
+
+            nav li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            footer {
+                padding: 10px;
+            }
+
+            footer form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            footer input[type="email"] {
+                width: auto;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Upcoming Movies</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="toggle-container">
+            <input type="checkbox" id="toggle" />
+            <label for="toggle"></label>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <h2>Welcome to Movie Review Website</h2>
+            <p>Discover the latest movie reviews, trailers, and more!</p>
+            <input type="text" class="search-bar" id="search-bar" placeholder="Search for movie reviews">
+        </section>
+
+        <section class="movie-review">
+            <h2>Movie Title</h2>
+            <p>Movie description goes here...</p>
+            <div class="user-rating">
+                <label for="rating-input">Rate this movie:</label>
+                <input type="number" id="rating-input" name="rating" min="1" max="5">
+                <button id="submit-rating">Submit Rating</button>
+            </div>
+            <div id="review-form">
+                <h3>Write a Review</h3>
+                <form id="user-review-form">
+                    <label for="user-name">Your Name:</label>
+                    <input type="text" id="user-name" name="name" required>
+                    <label for="user-review">Your Review:</label>
+                    <textarea id="user-review" name="review" required></textarea>
+                    <input type="submit" value="Submit Review">
+                </form>
+            </div>
+            <div id="user-reviews">
+                <!-- User reviews will be displayed here -->
+            </div>
+        </section>
+
+        <section class="upcoming-movies">
+            <h2>Upcoming Movies</h2>
+            <select id="genre">
+                <option value="all">All Genres</option>
+                <option value="action">Action</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <!-- Add more genres as needed -->
+            </select>
+            <select id="release-date">
+                <option value="all">All Release Dates</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <!-- Add more release dates as needed -->
+            </select>
+            <!-- Upcoming movies will be displayed here -->
+        </section>
+
+        <section class="about">
+            <h2>About Us</h2>
+            <p>This website aims to provide comprehensive movie reviews and information to help movie enthusiasts make informed decisions about what to watch next.</p>
+            <!-- Add more about us content here -->
+        </section>
+
+        <section class="contact">
+            <h2>Contact Us</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+
+        <section class="social-sharing">
+            <h2>Share This Page</h2>
+            <button onclick="shareOnFacebook()">Share on Facebook</button>
+            <button onclick="shareOnTwitter()">Share on Twitter</button>
+            <button onclick="shareOnInstagram()">Share on Instagram</button>
+        </section>
+
+        <section class="movie-news">
+            <h2>Movie News and Updates</h2>
+            <div class="news-item">
+                <h3>New Movie Announcement</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac leo sit amet justo efficitur euismod.</p>
+                <a href="#">Read More</a>
+            </div>
+            <div class="news-item">
+                <h3>Interview with Director</h3>
+                <p>Donec convallis augue nec leo ultrices, eget fringilla ipsum sagittis. Nam posuere hendrerit justo vitae tincidunt.</p>
+                <a href="#">Read More</a>
+            </div>
+            <!-- Add more news items as needed -->
+        </section>
+    </main>
+    <footer>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+        <form action="#" method="post">
+            <input type="email" name="email" placeholder="Subscribe to our newsletter">
+            <input type="submit" value="Subscribe">
+        </form>
+        <div class="legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+    <script>
+        // JavaScript functions for social sharing
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            openNewWindow(shareUrl);
+        }
+
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const shareUrl = `https://twitter.com/intent/tweet?url=${url}`;
+            openNewWindow(shareUrl);
+        }
+
+        function shareOnInstagram() {
+            alert('Sorry, Instagram does not support sharing via URL.');
+        }
+
+        function openNewWindow(url) {
+            window.open(url, '_blank', 'width=600,height=400');
+        }
+
+        // JavaScript functions for movie reviews
+        document.addEventListener('DOMContentLoaded', function() {
+            const ratingInput = document.getElementById('rating-input');
+            const submitRatingBtn = document.getElementById('submit-rating');
+            const reviewForm = document.getElementById('user-review-form');
+            const userReviewsContainer = document.getElementById('user-reviews');
+
+            // Event listener for submitting rating
+            submitRatingBtn.addEventListener('click', function() {
+                const rating = ratingInput.value;
+                if (rating) {
+                    // Send rating to server
+                    // Update UI with new rating (e.g., display average rating)
+                } else {
+                    alert('Please enter a rating between 1 and 5.');
+                }
+            });
+
+            // Event listener for submitting review
+            reviewForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const userName = document.getElementById('user-name').value;
+                const userReview = document.getElementById('user-review').value;
+                if (userName && userReview) {
+                    // Send review to server
+                    // Display new review in UI
+                    const reviewElement = document.createElement('div');
+                    reviewElement.innerHTML = `<strong>${userName}</strong>: ${userReview}`;
+                    userReviewsContainer.appendChild(reviewElement);
+                    // Clear form fields
+                    document.getElementById('user-name').value = '';
+                    document.getElementById('user-review').value = '';
+                } else {
+                    alert('Please enter your name and review.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
