@@ -104,15 +104,15 @@
         }
 
         .toggle-container label:after {
-            content: '';
+            content: 'Dark/Light';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: #fff;
             top: 0;
             left: 0;
-            transition: 0.3s;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .toggle-container input[type="checkbox"] {
@@ -124,7 +124,8 @@
         }
 
         .toggle-container input[type="checkbox"]:checked + label:after {
-            left: 20px;
+            content: 'Dark/Light';
+            color: #fff;
         }
 
         /* Movie review styles */
@@ -268,6 +269,7 @@
         <section class="hero">
             <h2>Welcome to Movie Review Website</h2>
             <p>Discover the latest movie reviews, trailers, and more!</p>
+            <label for="search-bar">Search for movie reviews:</label>
             <input type="text" class="search-bar" id="search-bar" placeholder="Search for movie reviews">
         </section>
 
@@ -361,7 +363,8 @@
             <a href="#">Instagram</a>
         </div>
         <form action="#" method="post">
-            <input type="email" name="email" placeholder="Subscribe to our newsletter">
+            <label for="newsletter-email">Subscribe to our newsletter:</label>
+            <input type="email" id="newsletter-email" name="email" placeholder="Enter your email">
             <input type="submit" value="Subscribe">
         </form>
         <div class="legal-links">
