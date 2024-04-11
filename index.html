@@ -101,18 +101,16 @@
             height: 20px;
             background-color: #ccc;
             border-radius: 20px;
+            cursor: pointer;
         }
 
         .toggle-container label:after {
-            content: 'Dark/Light';
+            content: 'Toggle Dark Mode';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #000;
         }
 
         .toggle-container input[type="checkbox"] {
@@ -121,11 +119,6 @@
 
         .toggle-container input[type="checkbox"]:checked + label {
             background-color: #2196F3;
-        }
-
-        .toggle-container input[type="checkbox"]:checked + label:after {
-            content: 'Dark/Light';
-            color: #fff;
         }
 
         /* Movie review styles */
