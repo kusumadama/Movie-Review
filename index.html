@@ -102,15 +102,10 @@
             background-color: #ccc;
             border-radius: 20px;
             cursor: pointer;
-        }
-
-        .toggle-container label:after {
-            content: 'Toggle Dark Mode';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #000;
+            color: white; /* Adjusted for contrast */
+            padding: 5px; /* Added for better click area */
+            text-align: center; /* Centered text */
+            line-height: 20px; /* Centered vertically */
         }
 
         .toggle-container input[type="checkbox"] {
@@ -119,93 +114,6 @@
 
         .toggle-container input[type="checkbox"]:checked + label {
             background-color: #2196F3;
-        }
-
-        /* Movie review styles */
-        .movie-review {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .movie-review h2 {
-            margin-top: 0;
-        }
-
-        .movie-review p {
-            margin-bottom: 20px;
-        }
-
-        .movie-review .user-rating {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .movie-review .user-rating label {
-            margin-right: 10px;
-        }
-
-        /* Upcoming movies styles */
-        .upcoming-movies {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .upcoming-movies select {
-            margin-right: 10px;
-        }
-
-        /* About section styles */
-        .about {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        /* Contact section styles */
-        .contact {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .contact label {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .contact input[type="text"],
-        .contact input[type="email"],
-        .contact textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-
-        .contact textarea {
-            height: 100px;
-        }
-
-        .contact input[type="submit"] {
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
         }
 
         /* Responsive styles */
@@ -255,7 +163,9 @@
         </nav>
         <div class="toggle-container">
             <input type="checkbox" id="toggle" />
-            <label for="toggle">Toggle Dark Mode</label>
+            <label for="toggle" style="color: white;">
+            Toggle Dark Mode
+            </label>
         </div>
     </header>
     <main>
